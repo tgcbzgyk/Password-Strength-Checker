@@ -1,0 +1,43 @@
+import re
+
+def sifre_gucu_olcer(sifre):
+    puan = 0
+    notlar = []
+
+    # Kriter 1: Uzunluk
+    if len(sifre) >= 8:
+        puan += 1
+    else:
+        notlar.append("- Şifre en az 8 karakter olmalı.")
+
+    # Kriter 2: Sayı kontrolü
+    if re.search(r"\d", sifre):
+        puan += 1
+    else:
+        notlar.append("- En az bir rakam içermeli.")
+
+    # Kriter 3: Büyük harf kontrolü
+    if re.search(r"[A-Z]", sifre):
+        puan += 1
+    else:
+        notlar.append("- En az bir büyük harf içermeli.")
+
+    # Kriter 4: Özel karakter kontrolü
+    if re.search(r"[ !@#$%^&*(),.?\":{}|<>]", sifre):
+        puan += 1
+    else:
+        notlar.append("- En az bir özel karakter içermeli.")
+
+    return puan, notlar
+
+print("--- Şifre Gücü Ölçer ---")
+test_sifresi = input("Kontrol etmek istediğiniz şifreyi girin: ")
+skor, tavsiyeler = sifre_gucu_olcer(test_sifresi)
+
+print(f"\nŞifre Skoru: {skor}/4")
+if skor == 4:
+    print("Sonuç: Güçlü Şifre! ✅")
+else:
+    print("Geliştirme Tavsiyeleri:")
+    for t in tavsiyeler:
+        print(t)
