@@ -11,6 +11,15 @@ Bu proje, kullanıcıların oluşturduğu şifrelerin güvenliğini siber güven
 ## 🛠️ Teknik Detaylar
 - **Dil:** Python
 - **Kütüphaneler:** `re` (Regular Expressions) kütüphanesi kullanılarak karakter desenleri analiz edilmiştir.
+- ---
+### 🛡️ Siber Güvenlik İpucu: Neden Hashing?
+Bir sistem yöneticisi veya yazılımcı olarak kullanıcı şifrelerini asla "olduğu gibi" saklamamalısınız. 
+Bu projede kullandığımız **SHA-256**, tek yönlü bir özetleme (hashing) algoritmasıdır. 
+
+**Neden Önemli?**
+- Veritabanınız ele geçirilse bile, saldırganlar sadece karmaşık özetleri görür; gerçek şifreleri göremez.
+- Şifreleme (Encryption) geri döndürülebilirken, Hashing geri döndürülemez. Bu, kullanıcı gizliliği için altın kuraldır.
+---
 
 ## 💻 Nasıl Çalıştırılır?
 1. Depoyu klonlayın.
