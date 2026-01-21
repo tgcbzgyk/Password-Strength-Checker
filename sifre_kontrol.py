@@ -1,4 +1,6 @@
 import re
+import hashlib 
+
 
 def sifre_gucu_olcer(sifre):
     puan = 0
@@ -29,14 +31,21 @@ def sifre_gucu_olcer(sifre):
         notlar.append("- En az bir özel karakter içermeli.")
 
     return puan, notlar
+def sifre_hashle(sifre):
+    # Şifreyi SHA-256 algoritması ile geri dönülmez bir özete çevirir
+    sha256_objesi = hashlib.sha256(sifre.encode())
+    return sha256_objesi.hexdigest()
 
-print("--- Şifre Gücü Ölçer ---")
+print("--- Güvenli Şifre Sistemi ---")
 test_sifresi = input("Kontrol etmek istediğiniz şifreyi girin: ")
 skor, tavsiyeler = sifre_gucu_olcer(test_sifresi)
 
 print(f"\nŞifre Skoru: {skor}/4")
 if skor == 4:
     print("Sonuç: Güçlü Şifre! ✅")
+    secure_hash = sifre_hashle(test_sifresi)
+    print(f"Veritabanına Kaydesilecek Güvenli Hali (SHA-256): /n{secure_hash}")
+    
 else:
     print("Geliştirme Tavsiyeleri:")
     for t in tavsiyeler:
