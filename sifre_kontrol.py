@@ -44,7 +44,7 @@ print(f"\nŞifre Skoru: {skor}/4")
 if skor == 4:
     print("Sonuç: Güçlü Şifre! ✅")
     secure_hash = sifre_hashle(test_sifresi)
-    print(f"Veritabanına Kaydesilecek Güvenli Hali (SHA-256): /n{secure_hash}")
+    print(f"Veritabanına Kaydedilecek Güvenli Hali (SHA-256): \n{secure_hash}")
     
 else:
     print("Geliştirme Tavsiyeleri:")
